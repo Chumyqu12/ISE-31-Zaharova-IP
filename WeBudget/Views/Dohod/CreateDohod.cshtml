@@ -1,0 +1,35 @@
+﻿
+@{
+    ViewBag.Title = "CreateDohod";
+}
+
+
+@model WeBudget.Models.Dohod
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Добавить доход</h2>
+
+@using (Html.BeginForm())
+{
+    
+    @Html.LabelFor(model => model.Day, "День")
+    <br />
+    @Html.EditorFor(model => model.Day)
+    <br /><br />
+    @Html.LabelFor(model => model.Month, "Месяц")
+    <br />
+    @Html.EditorFor(model => model.Month)
+    <br /><br />
+    @Html.LabelFor(model => model.Sum, "Сумма")
+    <br />
+    @Html.EditorFor(model => model.Sum)
+    <br /><br />
+    @Html.LabelFor(model => model.Comment, "Комментарий")
+    <br />
+    @Html.EditorFor(model => model.Comment)
+    <br /><br />
+    <input type="submit" value="Добавить" />
+}

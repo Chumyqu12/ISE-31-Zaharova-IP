@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "Users";
+}
+
+@model IEnumerable<WeBudget.Models.User>
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div>
+    <h2>Users</h2>
+    <table>
+        <tr class="header">
+            <td><p>Id</p></td>
+            <td><p>FIO</p></td>
+            <td><p>Login</p></td>
+            <td><p>Password</p></td>
+            <td></td>
+        </tr>
+        @foreach (WeBudget.Models.User b in Model)
+        {
+            <tr>
+                <td><p>@b.Id</p></td>
+                <td><p>@b.FIO</p></td>
+                <td><p>@b.Login</p></td>
+                <td><p>@b.Password</p></td>
+               
+            </tr>
+        }
+    </table>
+</div>

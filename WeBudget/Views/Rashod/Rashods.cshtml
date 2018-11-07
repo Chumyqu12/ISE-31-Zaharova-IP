@@ -1,0 +1,103 @@
+﻿
+@{
+    ViewBag.Title = "Rashods";
+}
+
+
+@model IEnumerable<WeBudget.Models.Rashod>
+@{
+    Layout = null;
+}
+
+
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <title>MуBudget</title>
+    <link rel="stylesheet" href="~/Content/styles.css" type="text/css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,300" type="text/css" />
+
+    <title>Выравнивание фотографии по центру</title>
+</head>
+
+
+
+
+<style>
+    .fig {
+        text-align: center; /* Выравнивание по центру */
+    }
+
+
+    .center {
+        width: 700px; /* Ширина элемента в пикселах */
+        padding: 10px; /* Поля вокруг текста */
+        margin: auto; /* Выравниваем по центру */
+    }
+</style>
+
+
+<p class="fig">
+    <img src="~/img/CY2NYGSvMto.jpg"
+         width="1263" height="320" alt="Фотография">
+</p>
+
+<div class="center">
+    <nav>
+        <ul class="top-menu">
+            <li><a href="index">ГЛАВНАЯ</a></li>
+            <li class="About">О САЙТЕ</li>
+            <li><a href="Contact">ОБРАТНАЯ СВЯЗЬ</a></li>
+        </ul>
+    </nav>
+</div>
+    <aside>
+        <nav>
+            <ul class="aside-menu">
+                <li><a href="Table">ТАБЛИЦА РАСХОДОВ</a></li>
+                <li><a href="Dohodi">ДОХОДЫ И РАСХОДЫ</a></li>
+                <li><a href="Kakebo">KAKEBO</a></li>
+
+            </ul>
+        </nav>
+    </aside>
+
+
+
+    <div class="center">
+        <h2>Расходы</h2>
+
+
+        @{ var grid = new WebGrid(Model); }
+        <div>
+            @grid.GetHtml(columns: grid.Columns(
+                                               grid.Column("Id", "№"),
+                                               grid.Column("Day", "День"),
+                                               grid.Column("Month", "Месяц"),
+                                               grid.Column("Sum", "Сумма"),
+                                               grid.Column("Comment", "Комментарий"),
+                                               grid.Column("Редактировать", format: @<a href="~/Rashod/EditRashod/@item.Id"> Редактировать</a>),
+                                                  grid.Column("Удалить", format: @<a href="~/Rashod/DeleteRashod/@item.Id"> Удалить</a>)
+                                                     ), tableStyle: "table-bordered")
+        </div>
+        <input type="button" value="Добавить" onClick='location.href="CreateRashod"'>
+
+    </div>
+
+    <footer>
+        <div id="footer">
+            <div id="tw">
+                <h3>16-09-2018</h3>
+                <p>
+                    Хорошо составленный годовой бюджет позволяет жить, не залезая в долги, значительную часть года.
+                </p>
+            </div>
+            <div id="sitemap">
+                <h3>О САЙТЕ</h3>
+                <div>
+                    <a href="Contact">Обратная связь</a>
+                    <a href="About">О проекте</a>
+                </div>
+            </div>
+        </div>
+    </footer>

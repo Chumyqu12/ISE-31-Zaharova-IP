@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewBag.Title = "EditRashod";
+}
+
+<h2>EditRashod</h2>
+
+@{
+    ViewBag.Title = "Редактировать расход";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@model WeBudget.Models.Rashod
+<h2>Расход № @Model.Id</h2>
+@using (Html.BeginForm("EditRashod", "Rashod", FormMethod.Post))
+{
+    <fieldset>
+        @Html.HiddenFor(m => m.Id)
+        <p>
+            @Html.LabelFor(m => m.Day, "День")
+            <br />
+            @Html.EditorFor(m => m.Day)
+        </p>
+        <p>
+            @Html.LabelFor(m => m.Month, "Месяц")
+            <br />
+            @Html.EditorFor(m => m.Month)
+
+        </p>
+        <p>
+            @Html.LabelFor(m => m.Sum, "Сумма")
+            <br />
+            @Html.EditorFor(m => m.Sum)
+        </p>
+
+        <p>
+            @Html.LabelFor(m => m.Comment, "Комментарий")
+            <br />
+            @Html.EditorFor(m => m.Comment)
+        </p>
+        @Html.HiddenFor(m => m.UserId)
+        <p><input type="submit" value="Отправить" /></p>
+    </fieldset>
+}

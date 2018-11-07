@@ -1,0 +1,87 @@
+﻿
+@{
+    ViewBag.Title = "Dohods";
+}
+
+
+
+@model IEnumerable<WeBudget.Models.Dohod>
+@{
+    Layout = null;
+}
+
+
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <title>MуBudget</title>
+    <link rel="stylesheet" href="~/Content/styles.css" type="text/css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,300" type="text/css" />
+
+    <title>Выравнивание фотографии по центру</title>
+</head>
+
+
+
+
+<style>
+    .fig {
+        text-align: center; /* Выравнивание по центру */
+    }
+
+
+    .center {
+        width: 700px; /* Ширина элемента в пикселах */
+        padding: 10px; /* Поля вокруг текста */
+        margin: auto; /* Выравниваем по центру */
+    }
+</style>
+
+
+<p class="fig">
+    <img src="~/img/CY2NYGSvMto.jpg"
+         width="1263" height="320" alt="Фотография">
+</p>
+
+<div class="center">
+    <nav>
+        <ul class="top-menu">
+            <li><a href="index">ГЛАВНАЯ</a></li>
+            <li class="About">О САЙТЕ</li>
+            <li><a href="Contact">ОБРАТНАЯ СВЯЗЬ</a></li>
+        </ul>
+    </nav>
+</div>
+<aside>
+    <nav>
+        <ul class="aside-menu">
+            <li><a href="Table">ТАБЛИЦА РАСХОДОВ</a></li>
+            <li><a href="Dohodi">ДОХОДЫ И РАСХОДЫ</a></li>
+            <li><a href="Kakebo">KAKEBO</a></li>
+
+        </ul>
+    </nav>
+</aside>
+
+
+
+<div class="center">
+    <h2>Доходы</h2>
+
+
+    @{ var grid = new WebGrid(Model); }
+    <div>
+        @grid.GetHtml(columns: grid.Columns(
+                                                grid.Column("Id", "№"),
+                                                grid.Column("Day", "День"),
+                                                grid.Column("Month", "Месяц"),
+                                                grid.Column("Sum", "Сумма"),
+                                                grid.Column("Comment", "Комментарий"),
+                                                grid.Column("Редактировать", format: @<a href="~/Dohod/EditDohod/@item.Id"> Редактировать</a>),
+                                                    grid.Column("Удалить", format: @<a href="~/Dohod/DeleteDohod/@item.Id"> Удалить</a>)
+                                                        ), tableStyle: "table-bordered")
+    </div>
+    <input type="button" value="Добавить" onClick='location.href="CreateDohod"'>
+
+</div>
+

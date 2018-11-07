@@ -1,0 +1,31 @@
+﻿
+@{
+    ViewBag.Title = "CreateUser";
+}
+
+<h2>Регистрация</h2>
+@model WeBudget.Models.User
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@using (Html.BeginForm())
+{
+
+    @Html.LabelFor(model => model.FIO, "Имя")
+    <br />
+    @Html.EditorFor(model => model.FIO)
+    <br /><br />
+    @Html.LabelFor(model => model.Login, "Логин")
+    <br />
+    @Html.EditorFor(model => model.Login)
+    <br /><br />
+    @Html.LabelFor(model => model.Password, "Пароль")
+    <br />
+    @Html.EditorFor(model => model.Password)
+    <br /><br />
+   
+    <input type="submit" value="Зарегистрироваться" />
+}
