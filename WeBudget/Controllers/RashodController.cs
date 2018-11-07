@@ -5,12 +5,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WeBudget.Models;
+using WeBudget.Service;
 
 namespace WeBudget.Controllers
 {
     public class RashodController : Controller
     {
-        BudgetContext db = new BudgetContext();
+        RashodService rashodservice = new RashodService();
 
         [HttpGet]
         public ActionResult EditRashod(int? id)
@@ -19,10 +20,10 @@ namespace WeBudget.Controllers
             {
                 return HttpNotFound();
             }
-            Rashod rashod = db.Rashods.Find(id);
-            if (rashod != null)
+            
+            if (rashodservice.findRashodById(id) != null)
             {
-                return View(rashod);
+                return View(rashodservice.findRashodById(id));
             }
             return HttpNotFound();
         }
@@ -31,8 +32,7 @@ namespace WeBudget.Controllers
         public ActionResult EditRashod(Rashod rashod)
 
         {
-            db.Entry(rashod).State = EntityState.Modified;
-            db.SaveChanges();
+            rashodservice.Edit(rashod);
             return RedirectToAction("Rashods");
         }
 
@@ -46,32 +46,27 @@ namespace WeBudget.Controllers
         [HttpPost]
         public ActionResult CreateRashod(Rashod rashod)
         {
-            db.Rashods.Add(rashod);
-            db.SaveChanges();
+            rashodservice.Create(rashod);
             return RedirectToAction("Rashods");
         }
 
 
         public ActionResult DeleteRashod(int id)
         {
-            Rashod b = db.Rashods.Find(id);
-            if (b != null)
-            {
-                db.Rashods.Remove(b);
-                db.SaveChanges();
-            }
+            rashodservice.Delete(id);
             return RedirectToAction("Rashods");
         }
 
 
-
         public ActionResult Rashods()
         {
+            BudgetContext db = new BudgetContext();
+            // return View(rashodservice.getList());
             return View(db.Rashods);
         }
         protected override void Dispose(bool disposing)
         {
-            db.Dispose();
+            rashodservice.Dispose();
             base.Dispose(disposing);
         }
     }

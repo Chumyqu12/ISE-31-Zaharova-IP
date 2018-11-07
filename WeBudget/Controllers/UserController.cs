@@ -4,18 +4,19 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WeBudget.Models;
+using WeBudget.Service;
 
 namespace WeBudget.Controllers
 {
     public class UserController : Controller
 
     {
-        BudgetContext db = new BudgetContext();
+        UserService userservice = new UserService();
 
         public ActionResult Users()
 
         {
-            return View(db.Users);
+            return View(userservice.getList());
         }
 
         [HttpGet]
@@ -28,15 +29,14 @@ namespace WeBudget.Controllers
         [HttpPost]
         public ActionResult CreateUser(User User)
         {
-            db.Users.Add(User);
-            db.SaveChanges();
+            userservice.Create(User);
             return RedirectToAction("Users");
         }
 
 
         protected override void Dispose(bool disposing)
         {
-            db.Dispose();
+            userservice.Dispose();
             base.Dispose(disposing);
         }
     }

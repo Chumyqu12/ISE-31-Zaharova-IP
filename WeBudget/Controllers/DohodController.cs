@@ -5,12 +5,13 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WeBudget.Models;
+using WeBudget.Service;
 
 namespace WeBudget.Controllers
 {
     public class DohodController : Controller
     {
-        BudgetContext db = new BudgetContext();
+        DohodService dohodservice = new DohodService();
 
         [HttpGet]
         public ActionResult EditDohod(int? id)
@@ -19,10 +20,10 @@ namespace WeBudget.Controllers
             {
                 return HttpNotFound();
             }
-            Dohod dohod = db.Dohods.Find(id);
-            if (dohod != null)
+           
+            if (dohodservice.findDohodById(id) != null)
             {
-                return View(dohod);
+                return View(dohodservice.findDohodById(id));
             }
             return HttpNotFound();
         }
@@ -30,8 +31,7 @@ namespace WeBudget.Controllers
         [HttpPost]
         public ActionResult EditDohod(Dohod dohod)
         {
-            db.Entry(dohod).State = EntityState.Modified;
-            db.SaveChanges();
+            dohodservice.Edit(dohod);
             return RedirectToAction("Dohods");
         }
 
@@ -45,30 +45,24 @@ namespace WeBudget.Controllers
         [HttpPost]
         public ActionResult CreateDohod(Dohod dohod)
         {
-            db.Dohods.Add(dohod);
-            db.SaveChanges();
+            dohodservice.Create(dohod);
             return RedirectToAction("Dohods");
         }
 
         public ActionResult DeleteDohod(int id)
         {
-            Dohod b = db.Dohods.Find(id);
-            if (b != null)
-            {
-                db.Dohods.Remove(b);
-                db.SaveChanges();
-            }
+            dohodservice.Delete(id);
             return RedirectToAction("Dohods");
         }
 
         public ActionResult Dohods()
 
         {
-            return View(db.Dohods);
+            return View(dohodservice.getList());
         }
         protected override void Dispose(bool disposing)
         {
-            db.Dispose();
+            dohodservice.Dispose();
             base.Dispose(disposing);
         }
     }
