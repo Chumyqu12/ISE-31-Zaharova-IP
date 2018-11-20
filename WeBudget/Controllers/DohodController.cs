@@ -6,12 +6,13 @@ using System.Web;
 using System.Web.Mvc;
 using WeBudget.Models;
 using WeBudget.Service;
+using WeBudget.Service.FileService;
 
 namespace WeBudget.Controllers
 {
     public class DohodController : Controller
     {
-        DohodService dohodservice = new DohodService();
+        DohodFileService dohodservice = new DohodFileService();
 
         [HttpGet]
         public ActionResult EditDohod(int? id)

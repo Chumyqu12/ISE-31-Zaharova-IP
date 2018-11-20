@@ -160,9 +160,13 @@
     <Compile Include="Models\Rashod.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Service\DohodService.cs" />
-    <Compile Include="Service\RashodService.cs" />
-    <Compile Include="Service\UserService.cs" />
+    <Compile Include="Service\dbService\DohodService.cs" />
+    <Compile Include="Service\dbService\RashodService.cs" />
+    <Compile Include="Service\dbService\UserService.cs" />
+    <Compile Include="Service\FileService\DohodFileService.cs" />
+    <Compile Include="Service\FileService\RashodFileService.cs" />
+    <Compile Include="Service\Interface\IDohod.cs" />
+    <Compile Include="Service\Interface\IRashod.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\Database.mdf" />
@@ -224,7 +228,10 @@
     <Content Include="Views\Rashod\CreateRashod.cshtml" />
     <Content Include="Views\User\CreateUser.cshtml" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <Folder Include="Files\Dohod\" />
+    <Folder Include="Files\Rashod\" />
+  </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />
   </ItemGroup>

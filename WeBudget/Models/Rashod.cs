@@ -5,6 +5,7 @@ using System.Web;
 
 namespace WeBudget.Models
 {
+    [Serializable]
     public class Rashod
     {
         public int Id { get; set; }
@@ -17,7 +18,9 @@ namespace WeBudget.Models
 
         public string Comment { get; set; }
 
-        public  User User { get; set; }
+        public int UserId { get; set; }
+
+        // public  User User { get; set; }
 
 
     }

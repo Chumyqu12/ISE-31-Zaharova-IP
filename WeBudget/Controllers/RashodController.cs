@@ -6,12 +6,13 @@ using System.Web;
 using System.Web.Mvc;
 using WeBudget.Models;
 using WeBudget.Service;
+using WeBudget.Service.FileService;
 
 namespace WeBudget.Controllers
 {
     public class RashodController : Controller
     {
-        RashodService rashodservice = new RashodService();
+        RashodFileService rashodservice = new RashodFileService();
 
         [HttpGet]
         public ActionResult EditRashod(int? id)
@@ -59,10 +60,9 @@ namespace WeBudget.Controllers
 
 
         public ActionResult Rashods()
-        {
-            BudgetContext db = new BudgetContext();
-            // return View(rashodservice.getList());
-            return View(db.Rashods);
+        {          
+             return View(rashodservice.getList());
+           
         }
         protected override void Dispose(bool disposing)
         {
