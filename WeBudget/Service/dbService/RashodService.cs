@@ -4,14 +4,14 @@ using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using WeBudget.Models;
-using WeBudget.Service.Interface;
+using WeBudget.Service.Abstract;
 
 namespace WeBudget.Service
 {
-	public class RashodService: IRashod
+	public class RashodService : IBudget
 	{
         BudgetContext db = new BudgetContext();
-        public void Delete(int id)
+        public  void Delete(int id)
         {
             Rashod b = db.Rashods.Find(id);
             if (b != null)
@@ -21,34 +21,36 @@ namespace WeBudget.Service
             }
         }
 
-        public void Edit(Rashod rashod)
+        public  void Edit (BaseEntity baseEntity)
         {
-            db.Entry(rashod).State = EntityState.Modified;
+            db.Entry((Rashod)baseEntity).State = EntityState.Modified;
             db.SaveChanges();
         }
 
-        public void Create(Rashod rashod)
+        public  void Create(BaseEntity baseEntity)
         {
-            db.Rashods.Add(rashod);
+            db.Rashods.Add((Rashod)baseEntity);
             db.SaveChanges();
         }
 
-        public Rashod findRashodById(int? id)
+        public  BaseEntity findById(int? id)
         {
             Rashod rashod = db.Rashods.Find(id);
             return rashod;
         }
 
-        public List<Rashod> getList()
+        public  List<BaseEntity> getList()
         {
-            return db.Rashods.ToList();
- 
+            List<BaseEntity> baseentity = new List<BaseEntity>();
+            List<Rashod> rashod = db.Rashods.ToList();
+            for (int i = 0; i < rashod.Count; i++)
+            {
+                baseentity.Add(rashod[i]);
+            }
+            return baseentity;
+
         }
 
-        public void Dispose()
-        {
-            db.Dispose();
-        }
-
+       
     }
 }

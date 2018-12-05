@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-16"?>
 <Rashod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Id>1</Id>
-  <Day>22</Day>
-  <Month>11</Month>
-  <Sum>30</Sum>
-  <Comment>пирожок</Comment>
+  <Day>213</Day>
+  <Month>124</Month>
+  <Sum>1244</Sum>
+  <Comment>пирожки</Comment>
   <UserId>0</UserId>
 </Rashod>

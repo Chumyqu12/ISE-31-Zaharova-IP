@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-16"?>
+<Dohod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <Id>2</Id>
+  <Day>12</Day>
+  <Month>35</Month>
+  <Sum>1234</Sum>
+  <Comment>премия</Comment>
+  <UserId>0</UserId>
+</Dohod>

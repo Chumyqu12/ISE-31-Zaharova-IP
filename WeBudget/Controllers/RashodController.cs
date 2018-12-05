@@ -1,18 +1,36 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WeBudget.Models;
 using WeBudget.Service;
+using WeBudget.Service.Abstract;
 using WeBudget.Service.FileService;
 
 namespace WeBudget.Controllers
 {
     public class RashodController : Controller
     {
-        RashodFileService rashodservice = new RashodFileService();
+        String store = ConfigurationManager.AppSettings.Get("Store");
+        IBudget rashodservice;
+
+
+        public RashodController()
+        {
+            if (store == "db")
+            {
+                rashodservice = new RashodService();
+            }
+
+            if (store == "file")
+            {
+                rashodservice = new RashodFileService();
+            }
+        }
+      
 
         [HttpGet]
         public ActionResult EditRashod(int? id)
@@ -22,9 +40,9 @@ namespace WeBudget.Controllers
                 return HttpNotFound();
             }
             
-            if (rashodservice.findRashodById(id) != null)
+            if (rashodservice.findById(id) != null)
             {
-                return View(rashodservice.findRashodById(id));
+                return View(rashodservice.findById(id));
             }
             return HttpNotFound();
         }
@@ -64,10 +82,6 @@ namespace WeBudget.Controllers
              return View(rashodservice.getList());
            
         }
-        protected override void Dispose(bool disposing)
-        {
-            rashodservice.Dispose();
-            base.Dispose(disposing);
-        }
+       
     }
 }

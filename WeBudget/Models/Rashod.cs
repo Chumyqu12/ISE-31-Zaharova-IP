@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
+using WeBudget.Service.Abstract;
 
 namespace WeBudget.Models
 {
     [Serializable]
-    public class Rashod
+    public class Rashod : BaseEntity
     {
-        public int Id { get; set; }
 
         public int Day { get; set; }
 

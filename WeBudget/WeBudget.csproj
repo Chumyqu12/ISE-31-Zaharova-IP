@@ -160,13 +160,14 @@
     <Compile Include="Models\Rashod.cs" />
     <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Service\Abstract\AbstractClass.cs" />
+    <Compile Include="Service\Abstract\BaseEntity.cs" />
+    <Compile Include="Service\Abstract\IBudget.cs" />
     <Compile Include="Service\dbService\DohodService.cs" />
     <Compile Include="Service\dbService\RashodService.cs" />
     <Compile Include="Service\dbService\UserService.cs" />
     <Compile Include="Service\FileService\DohodFileService.cs" />
     <Compile Include="Service\FileService\RashodFileService.cs" />
-    <Compile Include="Service\Interface\IDohod.cs" />
-    <Compile Include="Service\Interface\IRashod.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\Database.mdf" />
@@ -203,7 +204,9 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>

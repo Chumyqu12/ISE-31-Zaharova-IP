@@ -1,30 +1,42 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using WeBudget.Models;
 using WeBudget.Service;
+using WeBudget.Service.Abstract;
 using WeBudget.Service.FileService;
 
 namespace WeBudget.Controllers
 {
     public class DohodController : Controller
     {
-        DohodFileService dohodservice = new DohodFileService();
+       String store = ConfigurationManager.AppSettings.Get("Store");
+       IBudget dohodservice;
+      
+
+        public DohodController() {
+            if (store == "db")
+            {
+              dohodservice = new DohodService();
+            }
+
+            if (store == "file")
+            {
+              dohodservice = new DohodFileService();
+            }
+        }
 
         [HttpGet]
         public ActionResult EditDohod(int? id)
         {
-            if (id == null)
+
+            if (dohodservice.findById(id) != null)
             {
-                return HttpNotFound();
-            }
-           
-            if (dohodservice.findDohodById(id) != null)
-            {
-                return View(dohodservice.findDohodById(id));
+                return View(dohodservice.findById(id));
             }
             return HttpNotFound();
         }
@@ -57,14 +69,8 @@ namespace WeBudget.Controllers
         }
 
         public ActionResult Dohods()
-
         {
             return View(dohodservice.getList());
-        }
-        protected override void Dispose(bool disposing)
-        {
-            dohodservice.Dispose();
-            base.Dispose(disposing);
         }
     }
 }
