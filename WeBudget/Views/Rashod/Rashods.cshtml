@@ -46,20 +46,21 @@
 <div class="center">
     <nav>
         <ul class="top-menu">
-            <li><a href="index">ГЛАВНАЯ</a></li>
-            <li class="About">О САЙТЕ</li>
-            <li><a href="Contact">ОБРАТНАЯ СВЯЗЬ</a></li>
+            <li>@Html.ActionLink("ГЛАВНАЯ", "Index", "Home")</li>
+            <li> @Html.ActionLink("О САЙТЕ", "About", "Home") </li>
+            <li>@Html.ActionLink("ОБРАТНАЯ СВЯЗЬ", "Contact", "Home")</li>
         </ul>
     </nav>
 </div>
 <aside>
     <nav>
         <ul class="aside-menu">
-            <li><a href="Table">ТАБЛИЦА РАСХОДОВ</a></li>
-            <li><a href="Dohodi">ДОХОДЫ И РАСХОДЫ</a></li>
-            <li><a href="Kakebo">KAKEBO</a></li>
+            <li>@Html.ActionLink("ОСНОВНЫЕ ЭТАПЫ", "Table", "Home")</li>
+            <li>@Html.ActionLink("ПЛАНИРОВАНИЕ БЮДЖЕТА", "Dohodi", "Home")</li>
+            <li>@Html.ActionLink("ВАШИ ДОХОДЫ", "Dohods", "Dohod")</li>
+            <li>@Html.ActionLink("ВАШИ РАСХОДЫ", "Rashods", "Rashod")</li>
 
-        </ul>
+</ul>
     </nav>
 </aside>
 
@@ -70,17 +71,20 @@
 
 
     @{ var grid = new WebGrid(Model); }
-    <div>
-        @grid.GetHtml(columns: grid.Columns(
-                                                grid.Column("Id", "№"),
-                                                grid.Column("Day", "День"),
-                                                grid.Column("Month", "Месяц"),
-                                                grid.Column("Sum", "Сумма"),
-                                                grid.Column("Comment", "Комментарий"),
-                                                grid.Column("Редактировать", format: @<a href="~/Rashod/EditRashod/@item.Id"> Редактировать</a>),
-                                                             grid.Column("Удалить", format: @<a href="~/Rashod/DeleteRashod/@item.Id"> Удалить</a>)
-                                                                     ), tableStyle: "table-bordered")
-    </div>
-    <input type="button" value="Добавить" onClick='location.href="CreateRashod"'>
 
-</div>
+    <div class="center">
+        <div>
+            @grid.GetHtml(columns: grid.Columns(
+                                                      grid.Column("Id", "№"),
+                                                      grid.Column("Day", "День"),
+                                                      grid.Column("Month", "Месяц"),
+                                                      grid.Column("Sum", "Сумма"),
+                                                      grid.Column("Comment", "Комментарий"),
+                                                      grid.Column("Редактировать", format: @<a href="~/Rashod/EditRashod/@item.Id"> Редактировать</a>),
+                                                              grid.Column("Удалить", format: @<a href="~/Rashod/DeleteRashod/@item.Id"> Удалить</a>)
+                                                                ), tableStyle: "table-bordered")
+        </div>
+        </div>
+        <input type="button" value="Добавить" onClick='location.href="CreateRashod"'>
+
+    </div>

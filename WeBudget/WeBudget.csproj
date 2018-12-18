@@ -152,7 +152,6 @@
     <Compile Include="Controllers\DohodController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\RashodController.cs" />
-    <Compile Include="Controllers\UserController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -165,7 +164,6 @@
     <Compile Include="Service\Abstract\IBudget.cs" />
     <Compile Include="Service\dbService\DohodService.cs" />
     <Compile Include="Service\dbService\RashodService.cs" />
-    <Compile Include="Service\dbService\UserService.cs" />
     <Compile Include="Service\FileService\DohodFileService.cs" />
     <Compile Include="Service\FileService\RashodFileService.cs" />
   </ItemGroup>
@@ -197,6 +195,8 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -222,14 +222,12 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\Dohodi.cshtml" />
     <Content Include="Views\Home\Table.cshtml" />
-    <Content Include="Views\User\Users.cshtml" />
     <Content Include="Views\Dohod\Dohods.cshtml" />
     <Content Include="Views\Rashod\Rashods.cshtml" />
     <Content Include="Views\Dohod\EditDohod.cshtml" />
     <Content Include="Views\Rashod\EditRashod.cshtml" />
     <Content Include="Views\Dohod\CreateDohod.cshtml" />
     <Content Include="Views\Rashod\CreateRashod.cshtml" />
-    <Content Include="Views\User\CreateUser.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Files\Dohod\" />

@@ -27,8 +27,9 @@
 
     .center {
         width: 700px; /* Ширина элемента в пикселах */
-        padding: 10px; /* Поля вокруг текста */
-        margin: auto; /* Выравниваем по центру */
+        padding: 10px 250px;
+        /* Поля вокруг текста */
+        margin: 0; /* Выравниваем по центру */
     }
 </style>
 
@@ -37,13 +38,23 @@
 <div class="center">
     <nav>
         <ul class="top-menu">
-            <li><a href="index">ГЛАВНАЯ</a></li>
-            <li class="active">О САЙТЕ</li>
-            <li><a href="Contact">ОБРАТНАЯ СВЯЗЬ</a></li>
+            <li>@Html.ActionLink("ГЛАВНАЯ", "Index", "Home")</li>
+            <li> @Html.ActionLink("О САЙТЕ", "About", "Home") </li>
+            <li>@Html.ActionLink("ОБРАТНАЯ СВЯЗЬ", "Contact", "Home")</li>
         </ul>
     </nav>
 </div>
+<aside>
+    <nav>
+        <ul class="aside-menu">
+            <li>@Html.ActionLink("ОСНОВНЫЕ ЭТАПЫ", "Table", "Home")</li>
+            <li>@Html.ActionLink("ПЛАНИРОВАНИЕ БЮДЖЕТА", "Dohodi", "Home")</li>
+            <li>@Html.ActionLink("ВАШИ ДОХОДЫ", "Dohods", "Dohod")</li>
+            <li>@Html.ActionLink("ВАШИ РАСХОДЫ", "Rashods", "Rashod")</li>
 
+        </ul>
+    </nav>
+</aside>
 
 
 <div class="center">
@@ -55,16 +66,6 @@
 </div>
 
 
-<aside>
-    <nav>
-        <ul class="aside-menu">
-            <li><a href="Table">ТАБЛИЦА РАСХОДОВ</a></li>
-            <li><a href="Dohodi">ДОХОДЫ И РАСХОДЫ</a></li>
-            <li><a href="Kakebo">KAKEBO</a></li>
-
-        </ul>
-    </nav>
-</aside>
 
 
 <div class="center">

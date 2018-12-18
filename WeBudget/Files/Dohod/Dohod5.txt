@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-16"?>
 <Dohod xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
   <Id>5</Id>
-  <Day>22</Day>
-  <Month>22</Month>
-  <Sum>300</Sum>
-  <Comment>fgfd</Comment>
+  <Day>31</Day>
+  <Month>11</Month>
+  <Sum>3000</Sum>
+  <Comment>украли</Comment>
   <UserId>0</UserId>
 </Dohod>

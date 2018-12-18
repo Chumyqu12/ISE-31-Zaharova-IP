@@ -7,29 +7,113 @@
 @model WeBudget.Models.Dohod
 
 @{
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    Layout = null;
 }
 
-<h2>Добавить доход</h2>
 
-@using (Html.BeginForm())
-{
-    
-    @Html.LabelFor(model => model.Day, "День")
-    <br />
-    @Html.EditorFor(model => model.Day)
-    <br /><br />
-    @Html.LabelFor(model => model.Month, "Месяц")
-    <br />
-    @Html.EditorFor(model => model.Month)
-    <br /><br />
-    @Html.LabelFor(model => model.Sum, "Сумма")
-    <br />
-    @Html.EditorFor(model => model.Sum)
-    <br /><br />
-    @Html.LabelFor(model => model.Comment, "Комментарий")
-    <br />
-    @Html.EditorFor(model => model.Comment)
-    <br /><br />
-    <input type="submit" value="Добавить" />
-}
+<style>
+    .fig {
+        text-align: center; /* Выравнивание по центру */
+    }
+
+
+    .center {
+        width: 700px; /* Ширина элемента в пикселах */
+        padding: 10px 250px;
+        /* Поля вокруг текста */
+        margin: 0; /* Выравниваем по центру */
+        font-size: 14px !important;
+    }
+</style>
+
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+    <title>MуBudget</title>
+    <link rel="stylesheet" href="~/Content/styles.css" type="text/css" />
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,300" type="text/css" />
+
+    <title>Выравнивание фотографии по центру</title>
+</head>
+
+
+<script src="~/Scripts/jquery-1.10.2.js"></script>
+<script src="~/Scripts/jquery.validate.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+
+
+<body>
+    <p class="fig">
+        <img src="~/img/CY2NYGSvMto.jpg"
+             width="1263" height="320" alt="Фотография">
+    </p>
+
+    <div class="center">
+        <nav>
+            <ul class="top-menu">
+                <li>@Html.ActionLink("ГЛАВНАЯ", "Index", "Home")</li>
+                <li> @Html.ActionLink("О САЙТЕ", "About", "Home") </li>
+                <li>@Html.ActionLink("ОБРАТНАЯ СВЯЗЬ", "Contact", "Home")</li>
+            </ul>
+        </nav>
+    </div>
+    <aside>
+        <nav>
+            <ul class="aside-menu">
+                <li>@Html.ActionLink("ОСНОВНЫЕ ЭТАПЫ", "Table", "Home")</li>
+                <li>@Html.ActionLink("ПЛАНИРОВАНИЕ БЮДЖЕТА", "Dohodi", "Home")</li>
+                <li>@Html.ActionLink("ВАШИ ДОХОДЫ", "Dohods", "Dohod")</li>
+                <li>@Html.ActionLink("ВАШИ РАСХОДЫ", "Rashods", "Rashod")</li>
+
+            </ul>
+        </nav>
+    </aside>
+
+
+
+    <div class="center">
+        <h2>Добавить доход</h2>
+
+        @using (Html.BeginForm())
+        {
+
+
+            <p>
+                @Html.LabelFor(model => model.Day, "День")
+            </p>
+            <p>
+                @Html.EditorFor(model => model.Day)
+                @Html.ValidationMessageFor(model => model.Day)
+            </p>
+            <p>
+                @Html.LabelFor(model => model.Month, "Месяц")
+            </p>
+            <p>
+                @Html.EditorFor(model => model.Month)
+                @Html.ValidationMessageFor(model => model.Month)
+            </p>
+            <p>
+                @Html.LabelFor(model => model.Sum, "Сумма")
+            </p>
+            <p>
+                @Html.EditorFor(model => model.Sum)
+                @Html.ValidationMessageFor(model => model.Sum)
+
+            </p>
+
+            <p>
+                @Html.LabelFor(model => model.Comment, "Комментарий")
+            </p>
+
+            <p>
+                @Html.EditorFor(model => model.Comment)
+                @Html.ValidationMessageFor(model => model.Comment)
+            </p>
+
+            <p>
+                <input type="submit" value="Добавить" />
+
+            </p>
+        }
+    </div>
+</body>
