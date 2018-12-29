@@ -4,19 +4,18 @@
 }
 
 <head>
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <title>MуBudget</title>
-    <link rel="stylesheet" href="~/Content/styles.css" type="text/css" />
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,300" type="text/css" />
-
-    <title>Выравнивание фотографии по центру</title>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<title>MуBudget</title>
+	<link rel="stylesheet" href="~/Content/styles.css" type="text/css" />
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,300" type="text/css" />
+	@Styles.Render("~/Content/css")
+	@Scripts.Render("~/bundles/jquery")
+	@Scripts.Render("~/bundles/bootstrap")
+	<title>Выравнивание фотографии по центру</title>
 </head>
 
-<p class="fig">
-    <img src="~/img/CY2NYGSvMto.jpg"
-         width="1263" height="320" alt="Фотография">
-</p>
+
 
 
 <style>
@@ -35,29 +34,10 @@
 
 
 
-<div class="center">
-    <nav>
-        <ul class="top-menu">
-            <li>@Html.ActionLink("ГЛАВНАЯ", "Index", "Home")</li>
-            <li> @Html.ActionLink("О САЙТЕ", "About", "Home") </li>
-            <li>@Html.ActionLink("ОБРАТНАЯ СВЯЗЬ", "Contact", "Home")</li>
-        </ul>
-    </nav>
-</div>
-<aside>
-    <nav>
-        <ul class="aside-menu">
-            <li>@Html.ActionLink("ОСНОВНЫЕ ЭТАПЫ", "Table", "Home")</li>
-            <li>@Html.ActionLink("ПЛАНИРОВАНИЕ БЮДЖЕТА", "Dohodi", "Home")</li>
-            <li>@Html.ActionLink("ВАШИ ДОХОДЫ", "Dohods", "Dohod")</li>
-            <li>@Html.ActionLink("ВАШИ РАСХОДЫ", "Rashods", "Rashod")</li>
-
-        </ul>
-    </nav>
-</aside>
 
 
-<div class="center">
+
+<div class="container">
     <div id="heading">
         <h1> ДОХОДЫ И РАСХОДЫ</h1>
     </div>
@@ -66,7 +46,7 @@
 
 
 
-<section>
+<section class="container">
     <blockquote>
         <p>
             “Выработка бюджета есть искуство равномерного распределения разочарований.”
@@ -76,7 +56,7 @@
 </section>
 
 
-<div class="center">
+<div class="container">
     <p>Принципы планирования в вопросах домашней экономии должны прививаться детям со школы – с первых презентаций на тему «Семейный бюджет» с таблицей доходов и расходов семьи. Так у учеников формируется общее понимание политики индивидуального и семейного бюджетирования, привычка распоряжаться средствами дисциплинировано и организовывать учёт поступлений и трат финансов. Если ещё в школе ученики овладеют техникой «4 конвертов», «6 кувшинов», практикой «Kakebo» или умением управляться с таблицами доходов, расходов и сбережений, им не придётся переучиваться во взрослой семейной жизни.</p>
     <h2>Принципы ведения семейного бюджета: доходы и расходы семьи в таблице</h2>
     <p>У желающих дисциплинированно работать с семейным бюджет, путём ведения таблицы в Excel, как минимум, два пути.</p>
@@ -109,23 +89,4 @@
         <p>В презентации можно пройти и познавательный тест из 12-ти вопросов с интригующим названием «Как вам стать миллионером?». В качестве результата приводится три варианта стратегии, где наименьшее число набранных баллов предполагает путь через удачный брак, наследство или лотерею. Домашним заданием (если презентация демонстрируется в классе) становится предложение рассчитать рациональный бюджет школьника самостоятельно.</p>
 </div>
 
-<footer>
-    <div id="footer">
-        <div id="tw">
-            <h3>16-09-2018</h3>
-            <p>
-                Хорошо составленный годовой бюджет позволяет жить, не залезая в долги, значительную часть года.
-            </p>
-        </div>
-
-        <div id="sitemap">
-            <h3>О САЙТЕ</h3>
-            <div>
-                <a href="Contact">Обратная связь</a>
-                <a href="About">О проекте</a>
-
-            </div>
-        </div>
-    </div>
-</footer>
 

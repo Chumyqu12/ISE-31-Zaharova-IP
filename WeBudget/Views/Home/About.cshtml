@@ -3,19 +3,17 @@
 }
 
 <head>
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <title>MуBudget</title>
-    <link rel="stylesheet" href="~/Content/styles.css" type="text/css" />
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,300" type="text/css" />
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<title>MуBudget</title>
+	<link rel="stylesheet" href="~/Content/styles.css" type="text/css" />
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,300" type="text/css" />
+	@Styles.Render("~/Content/css")
+	@Scripts.Render("~/bundles/jquery")
+	@Scripts.Render("~/bundles/bootstrap")
 
-    <title>Выравнивание фотографии по центру</title>
 </head>
 
-<p class="fig">
-    <img src="~/img/CY2NYGSvMto.jpg"
-         width="1263" height="320" alt="Фотография">
-</p>
 
 
 
@@ -35,29 +33,10 @@
 
 
 
-<div class="center">
-    <nav>
-        <ul class="top-menu">
-            <li>@Html.ActionLink("ГЛАВНАЯ", "Index", "Home")</li>
-            <li> @Html.ActionLink("О САЙТЕ", "About", "Home") </li>
-            <li>@Html.ActionLink("ОБРАТНАЯ СВЯЗЬ", "Contact", "Home")</li>
-        </ul>
-    </nav>
-</div>
-<aside>
-    <nav>
-        <ul class="aside-menu">
-            <li>@Html.ActionLink("ОСНОВНЫЕ ЭТАПЫ", "Table", "Home")</li>
-            <li>@Html.ActionLink("ПЛАНИРОВАНИЕ БЮДЖЕТА", "Dohodi", "Home")</li>
-            <li>@Html.ActionLink("ВАШИ ДОХОДЫ", "Dohods", "Dohod")</li>
-            <li>@Html.ActionLink("ВАШИ РАСХОДЫ", "Rashods", "Rashod")</li>
-
-        </ul>
-    </nav>
-</aside>
 
 
-<div class="center">
+
+<div class="container">
     <div id="heading">
 
         <h1>О сайте</h1>
@@ -68,27 +47,11 @@
 
 
 
-<div class="center">
-    <h2>
+<div class="container">
+    <p>
         Наш сайт поможет вам в создании семейного бюджета, его грамотном составлении и ведении.Ничего лишнего. Только по
         делу на понятном языке для каждого.
-    </h2>
-    <h2>Статьи пишутся исключительно с целью повышения Вашей финансовой грамотности.</h2>
+    </p>
+    <p>Статьи пишутся исключительно с целью повышения Вашей финансовой грамотности.</p>
 </div>
-<footer>
-    <div id="footer">
-        <div id="tw">
-            <h3>16-09-2018</h3>
-            <p>
-                Хорошо составленный годовой бюджет позволяет жить, не залезая в долги, значительную часть года.
-            </p>
-        </div>
-        <div id="sitemap">
-            <h3>О САЙТЕ</h3>
-            <div>
-                <a href="Contact">Обратная связь</a>
-                <a href="About">О проекте</a>
-            </div>
-        </div>
-    </div>
-</footer>
+

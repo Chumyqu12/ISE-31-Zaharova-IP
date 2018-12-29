@@ -2,18 +2,20 @@
 
 @{
     ViewBag.Title = "Редактировать расход";
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 @model WeBudget.Models.Rashod
 
 <head>
-    <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
-    <title>MуBudget</title>
-    <link rel="stylesheet" href="~/Content/styles.css" type="text/css" />
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,300" type="text/css" />
-
-    <title>Выравнивание фотографии по центру</title>
+	<meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<title>MуBudget</title>
+	<link rel="stylesheet" href="~/Content/styles.css" type="text/css" />
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,300" type="text/css" />
+	@Styles.Render("~/Content/css")
+	@Scripts.Render("~/bundles/jquery")
+	@Scripts.Render("~/bundles/bootstrap")
+	<title>Выравнивание фотографии по центру</title>
 </head>
 
 
@@ -39,36 +41,7 @@
 
 
 
-
-<p class="fig">
-    <img src="~/img/CY2NYGSvMto.jpg"
-         width="1263" height="320" alt="Фотография">
-</p>
-
-<div class="center">
-    <nav>
-        <ul class="top-menu">
-            <li>@Html.ActionLink("ГЛАВНАЯ", "Index", "Home")</li>
-            <li> @Html.ActionLink("О САЙТЕ", "About", "Home") </li>
-            <li>@Html.ActionLink("ОБРАТНАЯ СВЯЗЬ", "Contact", "Home")</li>
-        </ul>
-    </nav>
-</div>
-<aside>
-    <nav>
-        <ul class="aside-menu">
-            <li>@Html.ActionLink("ОСНОВНЫЕ ЭТАПЫ", "Table", "Home")</li>
-            <li>@Html.ActionLink("ПЛАНИРОВАНИЕ БЮДЖЕТА", "Dohodi", "Home")</li>
-            <li>@Html.ActionLink("ВАШИ ДОХОДЫ", "Dohods", "Dohod")</li>
-            <li>@Html.ActionLink("ВАШИ РАСХОДЫ", "Rashods", "Rashod")</li>
-
-        </ul>
-    </nav>
-</aside>
-
-
-
-<div class="center">
+<div class="container">
     <h2>Расход № @Model.Id</h2>
     @using (Html.BeginForm("EditRashod", "Rashod", FormMethod.Post))
     {

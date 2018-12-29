@@ -7,7 +7,7 @@
 
 @model IEnumerable<WeBudget.Service.Abstract.BaseEntity>
 @{
-    Layout = null;
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
 
@@ -17,74 +17,37 @@
     <title>MуBudget</title>
     <link rel="stylesheet" href="~/Content/styles.css" type="text/css" />
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Oswald:400,300" type="text/css" />
-
+    <link rel="stylesheet" href="~/Content/bootstrap.css" type="text/css" />
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
     <title>Выравнивание фотографии по центру</title>
 </head>
 
 
 
 
-<style>
-    .fig {
-        text-align: center; /* Выравнивание по центру */
-    }
-
-
-    .center {
-        width: 700px; /* Ширина элемента в пикселах */
-        padding: 10px; /* Поля вокруг текста */
-        margin: auto; /* Выравниваем по центру */
-    }
-</style>
-
-
-<p class="fig">
-    <img src="~/img/CY2NYGSvMto.jpg"
-         width="1263" height="320" alt="Фотография">
-</p>
-
-<div class="center">
-    <nav>
-        <ul class="top-menu">
-            <li>@Html.ActionLink("ГЛАВНАЯ", "Index", "Home")</li>
-            <li> @Html.ActionLink("О САЙТЕ", "About", "Home") </li>
-            <li>@Html.ActionLink("ОБРАТНАЯ СВЯЗЬ", "Contact", "Home")</li>
-        </ul>
-    </nav>
-</div>
-<aside>
-    <nav>
-        <ul class="aside-menu">
-            <li>@Html.ActionLink("ОСНОВНЫЕ ЭТАПЫ", "Table", "Home")</li>
-            <li>@Html.ActionLink("ПЛАНИРОВАНИЕ БЮДЖЕТА", "Dohodi", "Home")</li>
-            <li>@Html.ActionLink("ВАШИ ДОХОДЫ", "Dohods", "Dohod")</li>
-            <li>@Html.ActionLink("ВАШИ РАСХОДЫ", "Rashods", "Rashod")</li>
-
-</ul>
-    </nav>
-</aside>
-
-
-
-<div class="center">
+<body>
     <h2>Расходы</h2>
 
 
     @{ var grid = new WebGrid(Model); }
 
-    <div class="center">
-        <div>
-            @grid.GetHtml(columns: grid.Columns(
-                                                      grid.Column("Id", "№"),
-                                                      grid.Column("Day", "День"),
-                                                      grid.Column("Month", "Месяц"),
-                                                      grid.Column("Sum", "Сумма"),
-                                                      grid.Column("Comment", "Комментарий"),
-                                                      grid.Column("Редактировать", format: @<a href="~/Rashod/EditRashod/@item.Id"> Редактировать</a>),
-                                                              grid.Column("Удалить", format: @<a href="~/Rashod/DeleteRashod/@item.Id"> Удалить</a>)
-                                                                ), tableStyle: "table-bordered")
-        </div>
-        </div>
-        <input type="button" value="Добавить" onClick='location.href="CreateRashod"'>
 
-    </div>
+    
+        <div style="display:block; width:100% !important; overflow:hidden;">
+        @grid.GetHtml(columns: grid.Columns(
+                                                  grid.Column("Id", "№"),
+                                                  grid.Column("Day", "Day"),
+                                                  grid.Column("Month", "Month"),
+                                                  grid.Column("Sum", "Sum"),
+                                                  grid.Column("Comment", "Comment"),
+                                                  grid.Column("Edit", format: @<a href="~/Rashod/EditRashod/@item.Id"> Edit</a>),
+                                                             grid.Column("Delete", format: @<a href="~/Rashod/DeleteRashod/@item.Id"> Delete </a>)
+                                                               ), tableStyle: "table-bordered")
+        </div>
+  
+
+    <input type="button" value="Добавить" onClick='location.href="CreateRashod"'>
+
+</body>
